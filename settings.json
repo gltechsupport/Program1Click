@@ -4,26 +4,32 @@
       "1": {
         "name": "Ninite",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe"
+		"filename": "Ninite.exe"
       },
       "2": {
         "name": "Adobe Reader",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe"
+		"filename": "Adobe Reader.exe"
       },
       "3": {
         "name": "DirectX",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe"
+		"filename": "DirectX.exe"
       },
       "4": {
         "name": "Microsoft Office (O365)",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/OfficeSetup.exe"
+		"filename": "Office.exe"
       },
       "5": {
         "name": "Driver Booster",
         "url": "https://cdn.iobit.com/insurweb/db/dl_enseo_db/driver_booster_setup.exe"
+		"filename": "Driver Booster.exe"
       },
       "6": {
         "name": "Link Shell Extension",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/LSE.exe"
+		"filename": "LSE.exe"
       },
       "7": {
         "name": "Shadow Defender",
@@ -31,6 +37,7 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/ShadowDefender.exe"
+		"filename": "sd.exe"
           },
           "0": {
             "name": "Back to Main Menu"
@@ -41,6 +48,7 @@
       "8": {
         "name": "Start Is Back",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2010%20Start%20is%20Back.exe"
+		"filename": "StartisBack.exe"
       },
       "9": {
         "name": "WinLock",
@@ -48,10 +56,12 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock.exe"
+		"filename": "Winlock.exe"
           },
           "2": {
             "name": "Download and Install Pre-Config",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock-Config.exe"
+		"filename": "WinlockConfig.exe"
           },
           "0": {
             "name": "Back to Main Menu"
@@ -65,12 +75,13 @@
           "1": {
             "name": "Download and Install",
             "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Autoshutdown.exe"
+		"filename": "Autoshutdown.exe"
           },
           "0": {
             "name": "Back to Main Menu"
           }
         },
-        "note": "Use the application's configured/default password."
+        "note": "The default password is 'admin' "
       },
       "11": {
         "name": "StartKiller",
@@ -78,6 +89,7 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/startkiller.exe"
+		"filename": "StartKiller.exe"
           },
           "0": {
             "name": "Back to Main Menu"
@@ -91,6 +103,7 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/menu.bat"
+		"filename": "Startmenu.bat"
           },
           "0": {
             "name": "Back to Main Menu"
@@ -101,10 +114,12 @@
       "13": {
         "name": "Display Driver Uninstaller",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe"
+		"filename": "DDU.exe"
       },
 	   "14": {
         "name": "Activator",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/MAS_AIO.cmd"
+		"filename": "MAS_AIO.cmd"
       }
 	  
     },
@@ -118,26 +133,32 @@
       "1": {
         "name": "Ninite",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe"
+		"filename": "Ninite.exe"
       },
       "2": {
         "name": "Adobe Reader",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe"
+		"filename": "Adobe Reader.exe"
       },
       "3": {
         "name": "DirectX",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe"
+		"filename": "DirectX.exe	"
       },
       "4": {
         "name": "Microsoft Office (O365)",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/OfficeSetup.exe"
+		"filename": "Office.exe"
       },
       "5": {
         "name": "Driver Booster",
         "url": "https://cdn.iobit.com/insurweb/db/dl_enseo_db/driver_booster_setup.exe"
+		"filename": "Driver Booster.exe"
       },
       "6": {
         "name": "Link Shell Extension",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/LSE.exe"
+		"filename": "LSE.exe"
       },
       "7": {
         "name": "Shadow Defender",
@@ -145,6 +166,7 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/ShadowDefender.exe"
+		"filename": "SD.exe"
           },
           "0": {
             "name": "Back to Main Menu"
@@ -158,6 +180,12 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2011%20Start%20is%20Back.exe"
+			"filename": "StartisBack.exe"
+		  "2": {
+            "name": "Download and Install Crack",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2011%20Start%20is%20Back%20Crack.exe"
+			"filename": "StartisBackCrack.exe"
+		
           },
           "0": {
             "name": "Back to Main Menu"
@@ -171,10 +199,12 @@
           "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock.exe"
+		"filename": "Winlock.exe"
           },
           "2": {
             "name": "Download and Install Pre-Config",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock-Config.exe"
+		"filename": "WinlockConfig.exe"
           },
           "0": {
             "name": "Back to Main Menu"
@@ -188,20 +218,23 @@
           "1": {
             "name": "Download and Install",
             "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Autoshutdown.exe"
+		"filename": "AutoShutdown.exe"
           },
           "0": {
             "name": "Back to Main Menu"
           }
         },
-        "note": "Use the application's configured/default password."
+        "note": "The default password is 'admin' "
       },
       "11": {
         "name": "Display Driver Uninstaller",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe"
+		"filename": "DDU.exe"
       },
 	  "12": {
         "name": "Activator",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/MAS_AIO.cmd"
+		"filename": "MAS_AIO.cmd"
       }
 	  
     },
