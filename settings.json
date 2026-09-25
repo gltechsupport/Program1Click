@@ -1,0 +1,58 @@
+{
+  "Windows10": {
+    "applications": [
+      {
+        "name": "Ninite",
+        "url": "https://www.sample.com/ninite"
+      },
+      {
+        "name": "Adobe Reader",
+        "url": "https://www.sample.com/adobe-reader"
+      },
+      {
+        "name": "DirectX",
+        "url": "https://www.sample.com/directx"
+      },
+      {
+        "name": "Microsoft Office (O365)",
+        "url": "https://www.sample.com/office"
+      },
+      {
+        "name": "Driver Booster",
+        "url": "https://www.sample.com/driver-booster"
+      },
+      {
+        "name": "Link Shell Extension",
+        "url": "https://www.sample.com/link-shell-extension"
+      }
+    ]
+  },
+  "Windows11": {
+    "applications": [
+      {
+        "name": "Ninite",
+        "url": "https://www.sample.com/ninite"
+      },
+      {
+        "name": "Adobe Reader",
+        "url": "https://www.sample.com/adobe-reader"
+      },
+      {
+        "name": "DirectX",
+        "url": "https://www.sample.com/directx"
+      },
+      {
+        "name": "Microsoft Office (O365)",
+        "url": "https://www.sample.com/office"
+      },
+      {
+        "name": "Driver Booster",
+        "url": "https://www.sample.com/driver-booster"
+      },
+      {
+        "name": "Link Shell Extension",
+        "url": "https://www.sample.com/link-shell-extension"
+      }
+    ]
+  }
+}
