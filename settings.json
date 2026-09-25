@@ -1,58 +1,212 @@
 {
   "Windows10": {
-    "applications": [
-      {
+    "applications": {
+      "1": {
         "name": "Ninite",
-        "url": "https://www.sample.com/ninite"
+        "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe"
       },
-      {
+      "2": {
         "name": "Adobe Reader",
-        "url": "https://www.sample.com/adobe-reader"
+        "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe"
       },
-      {
+      "3": {
         "name": "DirectX",
-        "url": "https://www.sample.com/directx"
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe"
       },
-      {
+      "4": {
         "name": "Microsoft Office (O365)",
-        "url": "https://www.sample.com/office"
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/OfficeSetup.exe"
       },
-      {
+      "5": {
         "name": "Driver Booster",
-        "url": "https://www.sample.com/driver-booster"
+        "url": "https://cdn.iobit.com/insurweb/db/dl_enseo_db/driver_booster_setup.exe"
       },
-      {
+      "6": {
         "name": "Link Shell Extension",
-        "url": "https://www.sample.com/link-shell-extension"
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/LSE.exe"
+      },
+      "7": {
+        "name": "Shadow Defender",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/ShadowDefender.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "License Key: 6CS8H-E2VQD-6UANE-97Q0Z-ANB8G"
+      },
+      "8": {
+        "name": "Start Is Back",
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2010%20Start%20is%20Back.exe"
+      },
+      "9": {
+        "name": "WinLock",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock.exe"
+          },
+          "2": {
+            "name": "Download and Install Pre-Config",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock-Config.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "Crack/Serial 	Username: roman sanchez 	Key: AC7TFF-E6RRT-HWVBN-XFG6Z-44YE8-H3GJU"
+      },
+      "10": {
+        "name": "AutoShutdown (DarkJlord)",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Autoshutdown.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "Use the application's configured/default password."
+      },
+      "11": {
+        "name": "StartKiller",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/startkiller.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "This can disable or enable the Start Menu button. Use carefully."
+      },
+      "12": {
+        "name": "Start Menu",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/menu.bat"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "This can disable or enable the Start Menu. Use carefully."
+      },
+      "13": {
+        "name": "Display Driver Uninstaller",
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe"
       }
-    ]
+	   "14": {
+        "name": "Activator",
+        "url": "https://dev.azure.com/massgrave/Microsoft-Activation-Scripts/_apis/git/repositories/Microsoft-Activation-Scripts/items?path=/MAS/All-In-One-Version-KL/MAS_AIO.cmd&download=true"
+      }
+	  
+    },
+    "exit": {
+      "0": "Exit"
+    }
   },
+
   "Windows11": {
-    "applications": [
-      {
+    "applications": {
+      "1": {
         "name": "Ninite",
-        "url": "https://www.sample.com/ninite"
+        "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe"
       },
-      {
+      "2": {
         "name": "Adobe Reader",
-        "url": "https://www.sample.com/adobe-reader"
+        "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe"
       },
-      {
+      "3": {
         "name": "DirectX",
-        "url": "https://www.sample.com/directx"
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe"
       },
-      {
+      "4": {
         "name": "Microsoft Office (O365)",
-        "url": "https://www.sample.com/office"
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/OfficeSetup.exe"
       },
-      {
+      "5": {
         "name": "Driver Booster",
-        "url": "https://www.sample.com/driver-booster"
+        "url": "https://cdn.iobit.com/insurweb/db/dl_enseo_db/driver_booster_setup.exe"
       },
-      {
+      "6": {
         "name": "Link Shell Extension",
-        "url": "https://www.sample.com/link-shell-extension"
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/LSE.exe"
+      },
+      "7": {
+        "name": "Shadow Defender",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/ShadowDefender.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "License Key: 6CS8H-E2VQD-6UANE-97Q0Z-ANB8G"
+      },
+      "8": {
+        "name": "Start Is Back",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2011%20Start%20is%20Back.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "Additional configuration should use properly licensed software."
+      },
+      "9": {
+        "name": "WinLock",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock.exe"
+          },
+          "2": {
+            "name": "Download and Install Pre-Config",
+            "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock-Config.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+         "note": "Crack/Serial 	Username: roman sanchez 	Key: AC7TFF-E6RRT-HWVBN-XFG6Z-44YE8-H3GJU"
+      },
+      "10": {
+        "name": "AutoShutdown (DarkJlord)",
+        "submenu": {
+          "1": {
+            "name": "Download and Install",
+            "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Autoshutdown.exe"
+          },
+          "0": {
+            "name": "Back to Main Menu"
+          }
+        },
+        "note": "Use the application's configured/default password."
+      },
+      "11": {
+        "name": "Display Driver Uninstaller",
+        "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe"
       }
-    ]
+	  "12": {
+        "name": "Activator",
+        "url": "https://dev.azure.com/massgrave/Microsoft-Activation-Scripts/_apis/git/repositories/Microsoft-Activation-Scripts/items?path=/MAS/All-In-One-Version-KL/MAS_AIO.cmd&download=true"
+      }
+	  
+    },
+    "exit": {
+      "0": "Exit"
+    }
   }
 }
