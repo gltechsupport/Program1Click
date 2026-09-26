@@ -38,9 +38,8 @@ public class WinConsole {
 
 try {
     # Set internal buffer and window character height so full menu fits
-    $rawUI = $host.UI.RawUI
-    $rawUI.BufferSize = New-Object System.Management.Automation.Host.Size(60, 9999)
-    $rawUI.WindowSize = New-Object System.Management.Automation.Host.Size(60, 45)
+    $rawUI =$host.UI.RawUI
+    $rawUI.BufferSize = New-Object System.Management.Automation.Host.Size(60, 9999)$rawUI.WindowSize = New-Object System.Management.Automation.Host.Size(60, 45)
     
     # Add Win32 class and force dimensions (520px wide x 780px high)
     Add-Type -TypeDefinition $ConsoleCode
@@ -53,12 +52,12 @@ try {
 
 $ConfigUrl = "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/settings.json"
 
-$ConfigFile = Join-Path $env:TEMP "gltech_settings.json"
+$ConfigFile = Join-Path$env:TEMP "gltech_settings.json"
 
 # Set target directory in AppData\Roaming\GL-TECH\Program1ClickAIO
 $RoamingPath    = [Environment]::GetFolderPath('ApplicationData')
-$GlTechFolder   = Join-Path $RoamingPath "GL-TECH"
-$DownloadFolder = Join-Path $GlTechFolder "Program1ClickAIO"
+$GlTechFolder   = Join-Path$RoamingPath "GL-TECH"
+$DownloadFolder = Join-Path$GlTechFolder "Program1ClickAIO"
 
 # Create download directory structure if it doesn't exist
 if (-not (Test-Path $DownloadFolder)) {
@@ -272,15 +271,16 @@ function Download-Application {
         [string]$FileName
     )
 	
-	Clear-Host
+    Clear-Host
 
     Write-Host ""
-    Write-Host "============================================================"
-    Write-Host "                       DOWNLOAD"
-    Write-Host "============================================================"
+    Write-Host "============================================================" -ForegroundColor Cyan
+    Write-Host "                        DOWNLOAD" -ForegroundColor Magenta
+    Write-Host "============================================================" -ForegroundColor Cyan
     Write-Host ""
 
-    Write-Host "Application : $Name"
+    Write-Host "Application : " -NoNewline -ForegroundColor Gray
+    Write-Host "$Name" -ForegroundColor Yellow
     Write-Host ""
 
     # Determine filename
@@ -295,8 +295,10 @@ function Download-Application {
         $DownloadFolder `
         $FileName
 
-    Write-Host "File        : $FileName"
-    Write-Host "Destination : $OutputFile"
+    Write-Host "File        : " -NoNewline -ForegroundColor Gray
+    Write-Host "$FileName" -ForegroundColor White
+    Write-Host "Destination : " -NoNewline -ForegroundColor Gray
+    Write-Host "$OutputFile" -ForegroundColor DarkGray
     Write-Host ""
 
     Write-Host "Downloading..." -ForegroundColor Cyan
@@ -343,7 +345,7 @@ function Download-Application {
         Write-Host "============================================================" -ForegroundColor Green
         Write-Host ""
 
-        Write-Host "Saved to:"
+        Write-Host "Saved to:" -ForegroundColor Gray
         Write-Host $OutputFile -ForegroundColor Cyan
 
         Write-Host ""
@@ -363,8 +365,7 @@ function Download-Application {
     # DETERMINE FILE TYPE
     # ========================================================
 
-    $Extension = [System.IO.Path]::GetExtension(
-        $OutputFile
+    $Extension = [System.IO.Path]::GetExtension($OutputFile
     ).ToLowerInvariant()
 
 
@@ -431,7 +432,7 @@ function Download-Application {
         return
     }
 
-# ========================================================
+    # ========================================================
     # CMD FILE
     # ========================================================
 
@@ -471,7 +472,7 @@ function Download-Application {
 
     Write-Host "File downloaded successfully." -ForegroundColor Green
     Write-Host ""
-    Write-Host "This file type is not automatically executed."
+    Write-Host "This file type is not automatically executed." -ForegroundColor Yellow
     Write-Host ""
 
     Pause-Menu
@@ -493,15 +494,17 @@ function Show-SubMenu {
         Clear-Host
 
         Write-Host ""
-        Write-Host "============================================================"
-        Write-Host "                    $($Application.name)"
-        Write-Host "============================================================"
+        Write-Host "============================================================" -ForegroundColor Cyan
+        Write-Host "                    $($Application.name)" -ForegroundColor Magenta
+        Write-Host "============================================================" -ForegroundColor Cyan
         Write-Host ""
 
-        # Show submenu items
+        # Show submenu items with 10 leading spaces
         foreach ($Property in $Application.submenu.PSObject.Properties) {
 
-            Write-Host "$($Property.Name). $($Property.Value.name)"
+            Write-Host "          " -NoNewline
+            Write-Host "$($Property.Name)." -NoNewline -ForegroundColor Yellow
+            Write-Host " $($Property.Value.name)" -ForegroundColor White
         }
 
 
@@ -513,7 +516,12 @@ function Show-SubMenu {
         }
 
         Write-Host ""
-        Write-Host "============================================================"
+        Write-Host "          " -NoNewline
+        Write-Host "0." -NoNewline -ForegroundColor Red
+        Write-Host " Back" -ForegroundColor White
+
+        Write-Host ""
+        Write-Host "============================================================" -ForegroundColor Cyan
         Write-Host ""
 
         $Choice = Read-Host "Select an option"
@@ -583,8 +591,7 @@ function Show-SubMenu {
 function Show-MainMenu {
 
     param(
-        $Config,
-        $Windows
+        $Config,$Windows
     )
 
     while ($true) {
@@ -592,16 +599,18 @@ function Show-MainMenu {
         Clear-Host
 
         Write-Host ""
-        Write-Host "============================================================"
-        Write-Host "                    GL TECH SUPPORT"
-        Write-Host "============================================================"
+        Write-Host "============================================================" -ForegroundColor Cyan
+        Write-Host "                    GL TECH SUPPORT" -ForegroundColor Magenta
+        Write-Host "============================================================" -ForegroundColor Cyan
         Write-Host ""
 
-        Write-Host "Operating System : $($Windows.Name)"
-        Write-Host "Build            : $($Windows.Build)"
+        Write-Host "Operating System : " -NoNewline -ForegroundColor Gray
+        Write-Host "$($Windows.Name)" -ForegroundColor Green
+        Write-Host "Build            : " -NoNewline -ForegroundColor Gray
+        Write-Host "$($Windows.Build)" -ForegroundColor Green
 
         Write-Host ""
-        Write-Host "============================================================"
+        Write-Host "============================================================" -ForegroundColor Cyan
         Write-Host ""
 
 
@@ -610,18 +619,22 @@ function Show-MainMenu {
             $Config.($Windows.Name).applications
 
 
-        # Display applications
-        foreach ($Property in $Applications.PSObject.Properties) {
+        # Display applications with 10 leading spaces
+        foreach ($Property in$Applications.PSObject.Properties) {
 
-            Write-Host "$($Property.Name). $($Property.Value.name)"
+            Write-Host "          " -NoNewline
+            Write-Host "$($Property.Name)." -NoNewline -ForegroundColor Yellow
+            Write-Host " $($Property.Value.name)" -ForegroundColor White
         }
 
 
         Write-Host ""
-        Write-Host "0. Exit"
+        Write-Host "          " -NoNewline
+        Write-Host "0." -NoNewline -ForegroundColor Red
+        Write-Host " Exit" -ForegroundColor White
         Write-Host ""
 
-        Write-Host "============================================================"
+        Write-Host "============================================================" -ForegroundColor Cyan
         Write-Host ""
 
 
@@ -636,14 +649,13 @@ function Show-MainMenu {
 
 
         # Find application
-        $SelectedProperty =
-            $Applications.PSObject.Properties |
+        $SelectedProperty =$Applications.PSObject.Properties |
             Where-Object {
-                $_.Name -eq $Choice
+                $_.Name -eq$Choice
             }
 
 
-        if ($null -eq $SelectedProperty) {
+        if ($null -eq$SelectedProperty) {
 
             Write-Host ""
             Write-Host "Invalid selection." -ForegroundColor Red
@@ -654,14 +666,14 @@ function Show-MainMenu {
         }
 
 
-        $Application = $SelectedProperty.Value
+        $Application =$SelectedProperty.Value
 
 
         # ====================================================
         # SUBMENU
         # ====================================================
 
-        if ($null -ne $Application.submenu) {
+        if ($null -ne$Application.submenu) {
 
             Show-SubMenu `
                 -Application $Application
@@ -691,11 +703,11 @@ function Show-MainMenu {
 
 
         # Optional filename
-        $FileName = $null
+        $FileName =$null
 
         if ($Application.PSObject.Properties.Name -contains "filename") {
 
-            $FileName = $Application.filename
+            $FileName =$Application.filename
         }
 
 
@@ -714,9 +726,9 @@ function Show-MainMenu {
 Clear-Host
 
 Write-Host ""
-Write-Host "============================================================"
-Write-Host "                    GL TECH SUPPORT"
-Write-Host "============================================================"
+Write-Host "============================================================" -ForegroundColor Cyan
+Write-Host "                    GL TECH SUPPORT" -ForegroundColor Magenta
+Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host ""
 
 
@@ -796,9 +808,9 @@ if (Test-Path $DownloadFolder) {
 Clear-Host
 
 Write-Host ""
-Write-Host "============================================================"
-Write-Host "                    GL TECH SUPPORT"
-Write-Host "============================================================"
+Write-Host "============================================================" -ForegroundColor Cyan
+Write-Host "                    GL TECH SUPPORT" -ForegroundColor Magenta
+Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Goodbye."
+Write-Host "Goodbye." -ForegroundColor Green
 Write-Host ""
