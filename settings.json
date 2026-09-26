@@ -1,17 +1,17 @@
 {
   "Windows10": {
     "applications": {
-      "1": {
+      "		1": {
         "name": "Ninite",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe",
 		"filename": "Ninite.exe"
       },
-      "2": {
+      "		2": {
         "name": "Adobe Reader",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe",
 		"filename": "Adobe Reader.exe"
       },
-      "3": {
+      "		3": {
         "name": "DirectX",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe",
 		"filename": "DirectX.exe"
