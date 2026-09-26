@@ -38,8 +38,9 @@ public class WinConsole {
 
 try {
     # Set internal buffer and window character height so full menu fits
-    $rawUI =$host.UI.RawUI
-    $rawUI.BufferSize = New-Object System.Management.Automation.Host.Size(60, 9999)$rawUI.WindowSize = New-Object System.Management.Automation.Host.Size(60, 45)
+    $rawUI = $host.UI.RawUI
+    $rawUI.BufferSize = New-Object System.Management.Automation.Host.Size(60, 9999)
+    $rawUI.WindowSize = New-Object System.Management.Automation.Host.Size(60, 45)
     
     # Add Win32 class and force dimensions (520px wide x 780px high)
     Add-Type -TypeDefinition $ConsoleCode
@@ -52,12 +53,12 @@ try {
 
 $ConfigUrl = "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/settings.json"
 
-$ConfigFile = Join-Path$env:TEMP "gltech_settings.json"
+$ConfigFile = Join-Path $env:TEMP "gltech_settings.json"
 
 # Set target directory in AppData\Roaming\GL-TECH\Program1ClickAIO
 $RoamingPath    = [Environment]::GetFolderPath('ApplicationData')
-$GlTechFolder   = Join-Path$RoamingPath "GL-TECH"
-$DownloadFolder = Join-Path$GlTechFolder "Program1ClickAIO"
+$GlTechFolder   = Join-Path $RoamingPath "GL-TECH"
+$DownloadFolder = Join-Path $GlTechFolder "Program1ClickAIO"
 
 # Create download directory structure if it doesn't exist
 if (-not (Test-Path $DownloadFolder)) {
@@ -275,7 +276,7 @@ function Download-Application {
 
     Write-Host ""
     Write-Host "============================================================"
-    Write-Host "                        DOWNLOAD"
+    Write-Host "                       DOWNLOAD"
     Write-Host "============================================================"
     Write-Host ""
 
@@ -362,7 +363,8 @@ function Download-Application {
     # DETERMINE FILE TYPE
     # ========================================================
 
-    $Extension = [System.IO.Path]::GetExtension($OutputFile
+    $Extension = [System.IO.Path]::GetExtension(
+        $OutputFile
     ).ToLowerInvariant()
 
 
@@ -429,7 +431,7 @@ function Download-Application {
         return
     }
 
-    # ========================================================
+# ========================================================
     # CMD FILE
     # ========================================================
 
@@ -496,10 +498,10 @@ function Show-SubMenu {
         Write-Host "============================================================"
         Write-Host ""
 
-        # Show submenu items with 10 leading spaces
+        # Show submenu items
         foreach ($Property in $Application.submenu.PSObject.Properties) {
 
-            Write-Host "          $($Property.Name). $($Property.Value.name)"
+            Write-Host "$($Property.Name). $($Property.Value.name)"
         }
 
 
@@ -581,7 +583,8 @@ function Show-SubMenu {
 function Show-MainMenu {
 
     param(
-        $Config,$Windows
+        $Config,
+        $Windows
     )
 
     while ($true) {
@@ -607,15 +610,15 @@ function Show-MainMenu {
             $Config.($Windows.Name).applications
 
 
-        # Display applications with 10 leading spaces
-        foreach ($Property in$Applications.PSObject.Properties) {
+        # Display applications
+        foreach ($Property in $Applications.PSObject.Properties) {
 
-            Write-Host "          $($Property.Name). $($Property.Value.name)"
+            Write-Host "$($Property.Name). $($Property.Value.name)"
         }
 
 
         Write-Host ""
-        Write-Host "          0. Exit"
+        Write-Host "0. Exit"
         Write-Host ""
 
         Write-Host "============================================================"
@@ -633,13 +636,14 @@ function Show-MainMenu {
 
 
         # Find application
-        $SelectedProperty =$Applications.PSObject.Properties |
+        $SelectedProperty =
+            $Applications.PSObject.Properties |
             Where-Object {
-                $_.Name -eq$Choice
+                $_.Name -eq $Choice
             }
 
 
-        if ($null -eq$SelectedProperty) {
+        if ($null -eq $SelectedProperty) {
 
             Write-Host ""
             Write-Host "Invalid selection." -ForegroundColor Red
@@ -650,14 +654,14 @@ function Show-MainMenu {
         }
 
 
-        $Application =$SelectedProperty.Value
+        $Application = $SelectedProperty.Value
 
 
         # ====================================================
         # SUBMENU
         # ====================================================
 
-        if ($null -ne$Application.submenu) {
+        if ($null -ne $Application.submenu) {
 
             Show-SubMenu `
                 -Application $Application
@@ -687,11 +691,11 @@ function Show-MainMenu {
 
 
         # Optional filename
-        $FileName =$null
+        $FileName = $null
 
         if ($Application.PSObject.Properties.Name -contains "filename") {
 
-            $FileName =$Application.filename
+            $FileName = $Application.filename
         }
 
 
