@@ -3,6 +3,7 @@
 # ============================================================
 
 $ErrorActionPreference = "Stop"
+
 # ============================================================
 # FORCE CONSOLE RESIZE & CENTER
 # ============================================================
@@ -37,14 +38,13 @@ public class WinConsole {
 "@
 
 try {
-    # Set internal buffer and window character height so full menu fits
-    $rawUI = $host.UI.RawUI
-    $rawUI.BufferSize = New-Object System.Management.Automation.Host.Size(60, 9999)
-    $rawUI.WindowSize = New-Object System.Management.Automation.Host.Size(60, 45)
+    # Set internal buffer and window size so full menu fits without scrollbars
+    $rawUI =$host.UI.RawUI
+    $rawUI.BufferSize = New-Object System.Management.Automation.Host.Size(60, 9999)$rawUI.WindowSize = New-Object System.Management.Automation.Host.Size(60, 38)
     
-    # Add Win32 class and force dimensions (520px wide x 780px high)
+    # Force Win32 window dimensions (520px wide x 680px high)
     Add-Type -TypeDefinition $ConsoleCode
-    [WinConsole]::ResizeAndCenter(520, 600)
+    [WinConsole]::ResizeAndCenter(520, 680)
 } catch {}
 
 # ============================================================
@@ -52,43 +52,37 @@ try {
 # ============================================================
 
 $ConfigUrl = "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/settings.json"
-
-$ConfigFile = Join-Path $env:TEMP "gltech_settings.json"
+$ConfigFile = Join-Path$env:TEMP "gltech_settings.json"
 
 # Set target directory in AppData\Roaming\GL-TECH\Program1ClickAIO
 $RoamingPath    = [Environment]::GetFolderPath('ApplicationData')
-$GlTechFolder   = Join-Path $RoamingPath "GL-TECH"
-$DownloadFolder = Join-Path $GlTechFolder "Program1ClickAIO"
+$GlTechFolder   = Join-Path$RoamingPath "GL-TECH"
+$DownloadFolder = Join-Path$GlTechFolder "Program1ClickAIO"
 
 # Create download directory structure if it doesn't exist
 if (-not (Test-Path $DownloadFolder)) {
     New-Item -ItemType Directory -Path $DownloadFolder -Force | Out-Null
 }
 
-
 # ============================================================
 # PAUSE
 # ============================================================
 
 function Pause-Menu {
-
     Write-Host ""
     Read-Host "Press Enter to continue"
 }
-
 
 # ============================================================
 # CHECK INTERNET
 # ============================================================
 
 function Check-Internet {
-
     Write-Host ""
     Write-Host "Checking Internet connection..." -ForegroundColor Cyan
     Write-Host ""
 
     try {
-
         Invoke-WebRequest `
             -Uri "https://raw.githubusercontent.com/" `
             -Method Head `
@@ -97,11 +91,9 @@ function Check-Internet {
             -ErrorAction Stop | Out-Null
 
         Write-Host "Internet connection: OK" -ForegroundColor Green
-
         return $true
     }
     catch {
-
         Write-Host ""
         Write-Host "============================================================" -ForegroundColor Red
         Write-Host "                NO INTERNET CONNECTION" -ForegroundColor Red
@@ -109,24 +101,20 @@ function Check-Internet {
         Write-Host ""
         Write-Host "This PC does not have Internet access." -ForegroundColor Yellow
         Write-Host ""
-
         return $false
     }
 }
-
 
 # ============================================================
 # DOWNLOAD SETTINGS.JSON
 # ============================================================
 
 function Download-Config {
-
     Write-Host ""
     Write-Host "Downloading settings.json..." -ForegroundColor Cyan
     Write-Host ""
 
     try {
-
         Invoke-WebRequest `
             -Uri $ConfigUrl `
             -OutFile $ConfigFile `
@@ -135,11 +123,9 @@ function Download-Config {
             -ErrorAction Stop
 
         Write-Host "settings.json downloaded." -ForegroundColor Green
-
         return $true
     }
     catch {
-
         Write-Host ""
         Write-Host "============================================================" -ForegroundColor Red
         Write-Host "          FAILED TO DOWNLOAD SETTINGS.JSON" -ForegroundColor Red
@@ -147,31 +133,25 @@ function Download-Config {
         Write-Host ""
         Write-Host $_.Exception.Message -ForegroundColor Yellow
         Write-Host ""
-
         return $false
     }
 }
-
 
 # ============================================================
 # LOAD JSON
 # ============================================================
 
 function Load-Configuration {
-
     try {
-
         $JsonText = Get-Content `
             -Path $ConfigFile `
             -Raw `
             -Encoding UTF8
 
         $Config = $JsonText | ConvertFrom-Json
-
         return $Config
     }
     catch {
-
         Write-Host ""
         Write-Host "============================================================" -ForegroundColor Red
         Write-Host "                    INVALID JSON" -ForegroundColor Red
@@ -179,34 +159,26 @@ function Load-Configuration {
         Write-Host ""
         Write-Host $_.Exception.Message -ForegroundColor Yellow
         Write-Host ""
-
         return $null
     }
 }
-
 
 # ============================================================
 # DETECT WINDOWS
 # ============================================================
 
 function Get-WindowsVersion {
-
     try {
-
         $OS = Get-CimInstance Win32_OperatingSystem
-
         $Build = [int]$OS.BuildNumber
 
         if ($Build -ge 22000) {
-
             return @{
                 Name  = "Windows11"
                 Build = $Build
             }
-
         }
         else {
-
             return @{
                 Name  = "Windows10"
                 Build = $Build
@@ -214,86 +186,65 @@ function Get-WindowsVersion {
         }
     }
     catch {
-
         Write-Host ""
         Write-Host "Unable to determine Windows version." -ForegroundColor Red
-
         exit 1
     }
 }
-
 
 # ============================================================
 # GET FILE NAME
 # ============================================================
 
 function Get-DownloadFileName {
-
     param(
         [string]$Url,
         [string]$SpecifiedFileName
     )
 
-    # If JSON specifies a filename, use it.
     if (-not [string]::IsNullOrWhiteSpace($SpecifiedFileName)) {
-
         return $SpecifiedFileName
     }
 
     try {
-
         $Uri = [System.Uri]$Url
-
-        $FileName = [System.IO.Path]::GetFileName(
-            $Uri.AbsolutePath
-        )
+        $FileName = [System.IO.Path]::GetFileName($Uri.AbsolutePath)
 
         if (-not [string]::IsNullOrWhiteSpace($FileName)) {
-
             return [System.Uri]::UnescapeDataString($FileName)
         }
     }
-    catch {
-    }
+    catch {}
 
     return "downloaded_file"
 }
-
 
 # ============================================================
 # DOWNLOAD APPLICATION
 # ============================================================
 
 function Download-Application {
-
     param(
         [string]$Name,
         [string]$Url,
         [string]$FileName
     )
-	
-	Clear-Host
+    
+    Clear-Host
 
     Write-Host ""
     Write-Host "============================================================"
-    Write-Host "                       DOWNLOAD"
+    Write-Host "                        DOWNLOAD"
     Write-Host "============================================================"
     Write-Host ""
 
     Write-Host "Application : $Name"
     Write-Host ""
 
-    # Determine filename
-    $FileName = Get-DownloadFileName `
-        -Url $Url `
-        -SpecifiedFileName $FileName
-
-    # Prevent a path supplied through JSON from escaping TEMP
+    $FileName = Get-DownloadFileName -Url $Url -SpecifiedFileName $FileName
     $FileName = [System.IO.Path]::GetFileName($FileName)
 
-    $OutputFile = Join-Path `
-        $DownloadFolder `
-        $FileName
+    $OutputFile = Join-Path $DownloadFolder $FileName
 
     Write-Host "File        : $FileName"
     Write-Host "Destination : $OutputFile"
@@ -303,11 +254,6 @@ function Download-Application {
     Write-Host ""
 
     try {
-
-        # ----------------------------------------------------
-        # CURL
-        # ----------------------------------------------------
-
         & curl.exe `
             -L `
             --fail `
@@ -318,21 +264,17 @@ function Download-Application {
             "$Url"
 
         if ($LASTEXITCODE -ne 0) {
-
             Write-Host ""
             Write-Host "============================================================" -ForegroundColor Red
             Write-Host "                    DOWNLOAD FAILED" -ForegroundColor Red
             Write-Host "============================================================" -ForegroundColor Red
             Write-Host ""
-
             return
         }
 
         if (-not (Test-Path $OutputFile)) {
-
             Write-Host ""
             Write-Host "Download command completed but the file was not found." -ForegroundColor Red
-
             return
         }
 
@@ -345,151 +287,86 @@ function Download-Application {
 
         Write-Host "Saved to:"
         Write-Host $OutputFile -ForegroundColor Cyan
-
         Write-Host ""
-
     }
     catch {
-
         Write-Host ""
         Write-Host "DOWNLOAD ERROR:" -ForegroundColor Red
         Write-Host $_.Exception.Message -ForegroundColor Yellow
-
         return
     }
 
+    $Extension = [System.IO.Path]::GetExtension($OutputFile).ToLowerInvariant()
 
-    # ========================================================
-    # DETERMINE FILE TYPE
-    # ========================================================
-
-    $Extension = [System.IO.Path]::GetExtension(
-        $OutputFile
-    ).ToLowerInvariant()
-
-
-    # ========================================================
-    # EXECUTABLE
-    # ========================================================
-
+    # Executable (.exe)
     if ($Extension -eq ".exe") {
-
         Write-Host "Starting application..." -ForegroundColor Cyan
         Write-Host ""
-
         try {
-
-            Start-Process `
-                -FilePath $OutputFile
-
+            Start-Process -FilePath $OutputFile
             Write-Host "Application started." -ForegroundColor Green
-
         }
         catch {
-
             Write-Host ""
             Write-Host "Unable to start application." -ForegroundColor Red
             Write-Host $_.Exception.Message -ForegroundColor Yellow
         }
-
         Pause-Menu
-
         return
     }
 
-
-    # ========================================================
-    # BATCH FILE
-    # ========================================================
-
+    # Batch File (.bat)
     if ($Extension -eq ".bat") {
-
         Write-Host "Starting batch file..." -ForegroundColor Cyan
         Write-Host ""
-
         try {
-
-            Start-Process `
-                -FilePath "cmd.exe" `
-                -ArgumentList @(
-                    "/c"
-                    "`"$OutputFile`""
-                )
-
+            Start-Process -FilePath "cmd.exe" -ArgumentList @("/c", "`"$OutputFile`"")
             Write-Host "Batch file started." -ForegroundColor Green
-
         }
         catch {
-
             Write-Host ""
             Write-Host "Unable to start BAT file." -ForegroundColor Red
             Write-Host $_.Exception.Message -ForegroundColor Yellow
         }
-
         Pause-Menu
-
         return
     }
 
-# ========================================================
-    # CMD FILE
-    # ========================================================
-
+    # CMD File (.cmd)
     if ($Extension -eq ".cmd") {
-
         Write-Host "Starting CMD file..." -ForegroundColor Cyan
         Write-Host ""
-
         try {
-
-            Start-Process `
-                -FilePath "cmd.exe" `
-                -ArgumentList @(
-                    "/c"
-                    "`"$OutputFile`""
-                )
-
+            Start-Process -FilePath "cmd.exe" -ArgumentList @("/c", "`"$OutputFile`"")
             Write-Host "CMD file started." -ForegroundColor Green
-
         }
         catch {
-
             Write-Host ""
             Write-Host "Unable to start CMD file." -ForegroundColor Red
             Write-Host $_.Exception.Message -ForegroundColor Yellow
         }
-
         Pause-Menu
-
         return
     }
 
-
-    # ========================================================
-    # OTHER FILE
-    # ========================================================
-
+    # Other File
     Write-Host "File downloaded successfully." -ForegroundColor Green
     Write-Host ""
     Write-Host "This file type is not automatically executed."
     Write-Host ""
-
     Pause-Menu
 }
-
 
 # ============================================================
 # SUBMENU
 # ============================================================
 
 function Show-SubMenu {
-
     param(
         $Application
     )
 
     while ($true) {
-
         Clear-Host
 
         Write-Host ""
@@ -498,75 +375,54 @@ function Show-SubMenu {
         Write-Host "============================================================"
         Write-Host ""
 
-        # Show submenu items
-        foreach ($Property in $Application.submenu.PSObject.Properties) {
-
-            Write-Host "$($Property.Name). $($Property.Value.name)"
+        # Show submenu items indented (excluding option 0)
+        foreach ($Property in$Application.submenu.PSObject.Properties) {
+            if ($Property.Name -ne "0") {
+                Write-Host "`t`t$($Property.Name). $($Property.Value.name)"
+            }
         }
 
-
-        # Show note
+        # Show note if present
         if (-not [string]::IsNullOrWhiteSpace($Application.note)) {
-
             Write-Host ""
             Write-Host "Note: $($Application.note)" -ForegroundColor Yellow
         }
 
+        Write-Host ""
+        Write-Host "0. Back to Main Menu"
         Write-Host ""
         Write-Host "============================================================"
         Write-Host ""
 
         $Choice = Read-Host "Select an option"
 
-
-        # Back
+        # Back to Main Menu
         if ($Choice -eq "0") {
-
             return
         }
 
-
         # Find selected submenu item
-        $SelectedProperty =
-            $Application.submenu.PSObject.Properties |
-            Where-Object {
-                $_.Name -eq $Choice
-            }
+        $SelectedProperty =$Application.submenu.PSObject.Properties | Where-Object { $_.Name -eq$Choice }
 
-
-        if ($null -eq $SelectedProperty) {
-
+        if ($null -eq$SelectedProperty) {
             Write-Host ""
             Write-Host "Invalid selection." -ForegroundColor Red
-
             Start-Sleep -Seconds 2
-
             continue
         }
 
+        $SelectedItem =$SelectedProperty.Value
 
-        $SelectedItem = $SelectedProperty.Value
-
-
-        # Item without URL
-        if (
-            [string]::IsNullOrWhiteSpace(
-                $SelectedItem.url
-            )
-        ) {
-
+        # Skip items without URL
+        if ([string]::IsNullOrWhiteSpace($SelectedItem.url)) {
             continue
         }
-
 
         # Optional filename
-        $FileName = $null
-
+        $FileName =$null
         if ($SelectedItem.PSObject.Properties.Name -contains "filename") {
-
-            $FileName = $SelectedItem.filename
+            $FileName =$SelectedItem.filename
         }
-
 
         Download-Application `
             -Name $SelectedItem.name `
@@ -575,20 +431,17 @@ function Show-SubMenu {
     }
 }
 
-
 # ============================================================
 # MAIN MENU
 # ============================================================
 
 function Show-MainMenu {
-
     param(
         $Config,
         $Windows
     )
 
     while ($true) {
-
         Clear-Host
 
         Write-Host ""
@@ -604,100 +457,58 @@ function Show-MainMenu {
         Write-Host "============================================================"
         Write-Host ""
 
-
         # Get applications for Windows version
-        $Applications =
-            $Config.($Windows.Name).applications
+        $Applications = $Config.($Windows.Name).applications
 
-
-        # Display applications
+        # Display applications indented
         foreach ($Property in $Applications.PSObject.Properties) {
-
-            Write-Host "$($Property.Name). $($Property.Value.name)"
+            Write-Host "`t`t$($Property.Name). $($Property.Value.name)"
         }
-
 
         Write-Host ""
         Write-Host "0. Exit"
         Write-Host ""
-
         Write-Host "============================================================"
         Write-Host ""
 
-
         $Choice = Read-Host "Select an option"
-
 
         # Exit
         if ($Choice -eq "0") {
-
             return
         }
 
-
         # Find application
-        $SelectedProperty =
-            $Applications.PSObject.Properties |
-            Where-Object {
-                $_.Name -eq $Choice
-            }
-
+        $SelectedProperty = $Applications.PSObject.Properties | Where-Object { $_.Name -eq $Choice }
 
         if ($null -eq $SelectedProperty) {
-
             Write-Host ""
             Write-Host "Invalid selection." -ForegroundColor Red
-
             Start-Sleep -Seconds 2
-
             continue
         }
-
 
         $Application = $SelectedProperty.Value
 
-
-        # ====================================================
-        # SUBMENU
-        # ====================================================
-
+        # Submenu
         if ($null -ne $Application.submenu) {
-
-            Show-SubMenu `
-                -Application $Application
-
+            Show-SubMenu -Application $Application
             continue
         }
 
-
-        # ====================================================
-        # NORMAL APPLICATION
-        # ====================================================
-
-        if (
-            [string]::IsNullOrWhiteSpace(
-                $Application.url
-            )
-        ) {
-
+        # Normal Application
+        if ([string]::IsNullOrWhiteSpace($Application.url)) {
             Write-Host ""
-            Write-Host "No URL configured for this application." `
-                -ForegroundColor Yellow
-
+            Write-Host "No URL configured for this application." -ForegroundColor Yellow
             Pause-Menu
-
             continue
         }
-
 
         # Optional filename
         $FileName = $null
-
         if ($Application.PSObject.Properties.Name -contains "filename") {
-
             $FileName = $Application.filename
         }
-
 
         Download-Application `
             -Name $Application.name `
@@ -705,7 +516,6 @@ function Show-MainMenu {
             -FileName $FileName
     }
 }
-
 
 # ============================================================
 # START PROGRAM
@@ -719,78 +529,41 @@ Write-Host "                    GL TECH SUPPORT"
 Write-Host "============================================================"
 Write-Host ""
 
-
-# ============================================================
-# INTERNET
-# ============================================================
-
+# Check Internet
 if (-not (Check-Internet)) {
-
     Pause-Menu
-
     exit
 }
 
-
-# ============================================================
-# DOWNLOAD CONFIGURATION
-# ============================================================
-
+# Download Configuration
 if (-not (Download-Config)) {
-
     Pause-Menu
-
     exit
 }
 
-
-# ============================================================
-# LOAD JSON
-# ============================================================
-
+# Load JSON
 $Config = Load-Configuration
-
-if ($null -eq $Config) {
-
+if ($null -eq$Config) {
     Pause-Menu
-
     exit
 }
 
-
-# ============================================================
-# WINDOWS DETECTION
-# ============================================================
-
+# Windows Detection
 $Windows = Get-WindowsVersion
 
-
-# ============================================================
-# MAIN MENU
-# ============================================================
-
-Show-MainMenu `
-    -Config $Config `
-    -Windows $Windows
-
+# Main Menu
+Show-MainMenu -Config $Config -Windows$Windows
 
 # ============================================================
 # CLEANUP
 # ============================================================
 
 # Remove temporary settings JSON file
-Remove-Item `
-    -Path $ConfigFile `
-    -Force `
-    -ErrorAction SilentlyContinue
+Remove-Item -Path $ConfigFile -Force -ErrorAction SilentlyContinue
 
 # Remove Program1ClickAIO download folder and its contents on exit
 if (Test-Path $DownloadFolder) {
-    Remove-Item `
-        -Path $DownloadFolder `
-        -Recurse `
-        -Force `
-        -ErrorAction SilentlyContinue
+    Remove-Item -Path $DownloadFolder -Recurse -Force -ErrorAction SilentlyContinue
 }
 
 Clear-Host
