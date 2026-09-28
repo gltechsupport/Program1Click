@@ -1,122 +1,122 @@
 {
   "Windows10": {
     "applications": {
-      "		1": {
+      "1": {
         "name": "Ninite",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe",
 		"filename": "Ninite.exe"
       },
-      "		2": {
+      "2": {
         "name": "Adobe Reader",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe",
 		"filename": "Adobe Reader.exe"
       },
-      "		3": {
+      "3": {
         "name": "DirectX",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe",
 		"filename": "DirectX.exe"
       },
-      "		4": {
+      "4": {
         "name": "Microsoft Office (O365)",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/OfficeSetup.exe",
 		"filename": "Office.exe"
       },
-      "		5": {
+      "5": {
         "name": "Driver Booster",
         "url": "https://cdn.iobit.com/insurweb/db/dl_enseo_db/driver_booster_setup.exe",
 		"filename": "Driver Booster.exe"
       },
-      "		6": {
+      "6": {
         "name": "Link Shell Extension",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/LSE.exe",
 		"filename": "LSE.exe"
       },
-      "		7": {
+      "7": {
         "name": "Shadow Defender",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/ShadowDefender.exe",
 		"filename": "sd.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "License Key: 6CS8H-E2VQD-6UANE-97Q0Z-ANB8G"
       },
-      "		8": {
+      "8": {
         "name": "Start Is Back",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2010%20Start%20is%20Back.exe",
 		"filename": "StartisBack.exe"
       },
-      "		9": {
+      "9": {
         "name": "WinLock",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock.exe",
 		"filename": "Winlock.exe"
           },
-          "		2": {
+          "2": {
             "name": "Download and Install Pre-Config",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock-Config.exe",
 		"filename": "WinlockConfig.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "Crack/Serial 	Username: roman sanchez 	Key: AC7TFF-E6RRT-HWVBN-XFG6Z-44YE8-H3GJU"
       },
-      "		10": {
+      "10": {
         "name": "AutoShutdown (DarkJlord)",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Autoshutdown.exe",
 		"filename": "Autoshutdown.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "The default password is 'admin' "
       },
-      "		11": {
+      "11": {
         "name": "StartKiller",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/startkiller.exe",
 		"filename": "StartKiller.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "This can disable or enable the Start Menu button. Use carefully."
       },
-      "		12": {
+      "12": {
         "name": "Start Menu",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/menu.bat",
 		"filename": "Startmenu.bat"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "This can disable or enable the Start Menu. Use carefully."
       },
-      "		13": {
+      "13": {
         "name": "Display Driver Uninstaller",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe",
 		"filename": "DDU.exe"
       },
-	   "		14": {
+	   "14": {
         "name": "Activator",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/MAS_AIO.cmd",
 		"filename": "MAS_AIO.cmd"
@@ -124,114 +124,114 @@
 	  
     },
     "exit": {
-      "		0": "Exit"
+      "0": "Exit"
     }
   },
 
   "Windows11": {
     "applications": {
-      "		1": {
+      "1": {
         "name": "Ninite",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Ninite.exe",
 		"filename": "Ninite.exe"
       },
-      "		2": {
+      "2": {
         "name": "Adobe Reader",
         "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/AdobeReader.exe",
 		"filename": "Adobe Reader.exe"
       },
-      "		3": {
+      "3": {
         "name": "DirectX",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Directx.exe",
 		"filename": "DirectX.exe	"
       },
-      "		4": {
+      "4": {
         "name": "Microsoft Office (O365)",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/OfficeSetup.exe",
 		"filename": "Office.exe"
       },
-      "		5": {
+      "5": {
         "name": "Driver Booster",
         "url": "https://cdn.iobit.com/insurweb/db/dl_enseo_db/driver_booster_setup.exe",
 		"filename": "Driver Booster.exe"
       },
-      "		6": {
+      "6": {
         "name": "Link Shell Extension",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/LSE.exe",
 		"filename": "LSE.exe"
       },
-      "		7": {
+      "7": {
         "name": "Shadow Defender",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/ShadowDefender.exe",
 		"filename": "SD.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "License Key: 6CS8H-E2VQD-6UANE-97Q0Z-ANB8G"
       },
-      "		8": {
+      "8": {
         "name": "Start Is Back",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2011%20Start%20is%20Back.exe",
 			"filename": "StartisBack.exe"
 			},
-		  "		2": {
+		  "2": {
             "name": "Download and Install Crack",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Windows%2011%20Start%20is%20Back%20Crack.exe",
 			"filename": "StartisBackCrack.exe"
 		          },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "Additional configuration should use properly licensed software."
       },
-      "		9": {
+      "9": {
         "name": "WinLock",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock.exe",
 		"filename": "Winlock.exe"
           },
-          "		2": {
+          "2": {
             "name": "Download and Install Pre-Config",
             "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Winlock-Config.exe",
 		"filename": "WinlockConfig.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
          "note": "Crack/Serial 	Username: roman sanchez 	Key: AC7TFF-E6RRT-HWVBN-XFG6Z-44YE8-H3GJU"
       },
-      "		10": {
+      "10": {
         "name": "AutoShutdown (DarkJlord)",
         "submenu": {
-          "		1": {
+          "1": {
             "name": "Download and Install",
             "url": "https://raw.githubusercontent.com/gltechsupport/Program1Click/refs/heads/main/gl-tech/Autoshutdown.exe",
 		"filename": "AutoShutdown.exe"
           },
-          "		0": {
+          "0": {
             "name": "Back to Main Menu"
           }
         },
         "note": "The default password is 'admin' "
       },
-      "		11": {
+      "11": {
         "name": "Display Driver Uninstaller",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe",
 		"filename": "DDU.exe"
       },
-	  "		12": {
+	  "12": {
         "name": "Activator",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/MAS_AIO.cmd",
 		"filename": "MAS_AIO.cmd"
@@ -239,7 +239,7 @@
 	  
     },
     "exit": {
-      "		0": "Exit"
+      "0": "Exit"
     }
   }
 }
