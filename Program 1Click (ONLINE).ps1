@@ -375,8 +375,11 @@ function Show-SubMenu {
         Write-Host "============================================================"
         Write-Host ""
 
+        # Retrieve submenu items safely as an array
+        $SubItems = @($Application.submenu.PSObject.Properties)
+
         # Show submenu items indented (excluding option 0)
-        foreach ($Property in$Application.submenu.PSObject.Properties) {
+        foreach ($Property in$SubItems) {
             if ($Property.Name -ne "0") {
                 Write-Host "`t`t$($Property.Name). $($Property.Value.name)"
             }
@@ -402,7 +405,7 @@ function Show-SubMenu {
         }
 
         # Find selected submenu item
-        $SelectedProperty =$Application.submenu.PSObject.Properties | Where-Object { $_.Name -eq$Choice }
+        $SelectedProperty =$SubItems | Where-Object { $_.Name -eq$Choice }
 
         if ($null -eq$SelectedProperty) {
             Write-Host ""
@@ -457,11 +460,11 @@ function Show-MainMenu {
         Write-Host "============================================================"
         Write-Host ""
 
-        # Get applications for Windows version
-        $Applications = $Config.($Windows.Name).applications
+        # Get applications for Windows version as an array
+        $Applications = @($Config.($Windows.Name).applications.PSObject.Properties)
 
         # Display applications indented
-        foreach ($Property in $Applications.PSObject.Properties) {
+        foreach ($Property in $Applications) {
             Write-Host "`t`t$($Property.Name). $($Property.Value.name)"
         }
 
@@ -479,7 +482,7 @@ function Show-MainMenu {
         }
 
         # Find application
-        $SelectedProperty = $Applications.PSObject.Properties | Where-Object { $_.Name -eq $Choice }
+        $SelectedProperty = $Applications | Where-Object { $_.Name -eq $Choice }
 
         if ($null -eq $SelectedProperty) {
             Write-Host ""
