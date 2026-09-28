@@ -375,11 +375,11 @@ function Show-SubMenu {
         Write-Host "============================================================"
         Write-Host ""
 
-        # Retrieve submenu items safely as an array
+        # Retrieve submenu items as an array
         $SubItems = @($Application.submenu.PSObject.Properties)
 
-        # Show submenu items indented (excluding option 0)
-        foreach ($Property in$SubItems) {
+        # Index loop avoids 'in' syntax completely
+        for ($i = 0; $i -lt$SubItems.Count; $i++) {$Property = $SubItems[$i]
             if ($Property.Name -ne "0") {
                 Write-Host "`t`t$($Property.Name). $($Property.Value.name)"
             }
@@ -404,8 +404,13 @@ function Show-SubMenu {
             return
         }
 
-        # Find selected submenu item
-        $SelectedProperty =$SubItems | Where-Object { $_.Name -eq$Choice }
+        # Find selected item
+        $SelectedProperty =$null
+        for ($i = 0; $i -lt $SubItems.Count; $i++) {
+            if ($SubItems[$i].Name -eq $Choice) {$SelectedProperty = $SubItems[$i]
+                break
+            }
+        }
 
         if ($null -eq$SelectedProperty) {
             Write-Host ""
@@ -416,12 +421,10 @@ function Show-SubMenu {
 
         $SelectedItem =$SelectedProperty.Value
 
-        # Skip items without URL
         if ([string]::IsNullOrWhiteSpace($SelectedItem.url)) {
             continue
         }
 
-        # Optional filename
         $FileName =$null
         if ($SelectedItem.PSObject.Properties.Name -contains "filename") {
             $FileName =$SelectedItem.filename
@@ -460,11 +463,12 @@ function Show-MainMenu {
         Write-Host "============================================================"
         Write-Host ""
 
-        # Get applications for Windows version as an array
+        # Get applications array
         $Applications = @($Config.($Windows.Name).applications.PSObject.Properties)
 
-        # Display applications indented
-        foreach ($Property in $Applications) {
+        # Index loop avoids 'in' syntax completely
+        for ($i = 0; $i -lt $Applications.Count; $i++) {
+            $Property = $Applications[$i]
             Write-Host "`t`t$($Property.Name). $($Property.Value.name)"
         }
 
@@ -481,8 +485,14 @@ function Show-MainMenu {
             return
         }
 
-        # Find application
-        $SelectedProperty = $Applications | Where-Object { $_.Name -eq $Choice }
+        # Find selected application
+        $SelectedProperty = $null
+        for ($i = 0; $i -lt $Applications.Count; $i++) {
+            if ($Applications[$i].Name -eq $Choice) {
+                $SelectedProperty = $Applications[$i]
+                break
+            }
+        }
 
         if ($null -eq $SelectedProperty) {
             Write-Host ""
