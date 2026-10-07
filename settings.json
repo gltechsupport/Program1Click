@@ -112,11 +112,21 @@
         "note": "This can disable or enable the Start Menu. Use carefully."
       },
       "13": {
+        "name": "Visual Runtime All in One",
+        "url": "https://github.com/gltechsupport/Program1Click/releases/download/FILES/VisualRuntimeAllinOne.exe",
+		"filename": "VisualRuntimeAllinOne.exe"
+      },
+      "14": {
+        "name": "WebView2",
+        "url": "https://github.com/gltechsupport/Program1Click/releases/download/FILES/WebView2.exe",
+		"filename": "WebView2.exe"
+      },
+      "15": {
         "name": "Display Driver Uninstaller",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe",
 		"filename": "DDU.exe"
       },
-	   "14": {
+	   "16": {
         "name": "Activator",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/MAS_AIO.cmd",
 		"filename": "MAS_AIO.cmd"
@@ -231,7 +241,17 @@
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/Display%20Driver%20Uninstaller.exe",
 		"filename": "DDU.exe"
       },
-	  "12": {
+      "12": {
+        "name": "Visual Runtime All in One",
+        "url": "https://github.com/gltechsupport/Program1Click/releases/download/FILES/VisualRuntimeAllinOne.exe",
+		"filename": "VisualRuntimeAllinOne.exe"
+      },
+      "13": {
+        "name": "WebView2",
+        "url": "https://github.com/gltechsupport/Program1Click/releases/download/FILES/WebView2.exe",
+		"filename": "WebView2.exe"
+      },
+	  "14": {
         "name": "Activator",
         "url": "https://github.com/gltechsupport/Program1Click/raw/refs/heads/main/gl-tech/MAS_AIO.cmd",
 		"filename": "MAS_AIO.cmd"
